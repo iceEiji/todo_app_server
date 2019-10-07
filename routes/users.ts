@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from "express";
-import express from 'express';
-const router = express.Router();
+import express, { Request, Response, NextFunction, Router } from "express";
+const router: Router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req: Request, res: Response, next: NextFunction) {
-  res.send('respond with a resource');
+  res.render('users', { title: 'Express - users' });
+  // res.send('respond with a resource');
 });
 
-export {router};
+export {router as users};

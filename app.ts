@@ -1,29 +1,24 @@
-import { Request, Response, NextFunction } from "express";
-
+import express, { Request, Response, NextFunction } from 'express';
 import createError from 'http-errors';
-import express from 'express';
-import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import {index} from './routes/index';
+import {users} from './routes/users';
 
-// import indexRouter from './routes/index';
-// import usersRouter from './routes/users';
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', 'views');
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', index);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req: Request, res: Response, next: NextFunction) {
