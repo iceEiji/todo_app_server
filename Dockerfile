@@ -15,7 +15,5 @@ RUN npm install
 # アプリケーションのソースをバンドルする
 COPY . .
 
-EXPOSE 8080
-
 # デフォルトで node が起動するので sh を代わりに起動
 CMD ["sh"]
