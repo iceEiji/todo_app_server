@@ -2,17 +2,17 @@
 
 1. nodejsとnpmのバージョンをpackage.jsonのものに合わせてください。
 
-1. run install module
+2. run install module
 ```
 npm install
 ```
 
-1. run build
+3. run build
 ```
 npx tsc
 ```
 
-1. run server
+4. run server
 ```
 npm run start
 ```
