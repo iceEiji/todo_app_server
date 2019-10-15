@@ -1,5 +1,7 @@
 # todo_app_server
 
+1. nodejsとnpmのバージョンをpackage.jsonのものに合わせてください。
+
 1. run install module
 ```
 npm install
