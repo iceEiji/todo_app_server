@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from 'express';
-import session from 'express-session'
 import createError from 'http-errors';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
