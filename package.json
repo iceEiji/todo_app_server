@@ -7,6 +7,10 @@
     "lint": "tslint 'src/**/*.ts'",
     "lint-check": "tslint-config-prettier-check ./tslint.json"
   },
+  "engines": {
+    "node": "12.11.1",
+    "npm": "~6.11.3"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
