@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/bin/www.js",
-    "lint": "tslint 'src/**/*.ts'"
+    "lint": "tslint 'src/**/*.ts'",
+    "lint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -31,6 +32,8 @@
     "prettier": "1.18.2",
     "tslint": "^5.20.0",
     "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.6.3"
   }
 }
