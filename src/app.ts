@@ -28,7 +28,7 @@ i18n.configure({
   objectNotation: true
 });
 app.use(i18n.init);
-app.use(function(req: Request, res: Response, next: NextFunction) {
+app.use((req: Request, res: Response, next: NextFunction) => {
   const session = req.session;
   if (session != null && session.locale) {
     i18n.setLocale(req, session.locale);
@@ -41,12 +41,12 @@ app.use("/", index);
 app.use("/users", users);
 
 // catch 404 and forward to error handler
-app.use(function(req: Request, res: Response, next: NextFunction) {
+app.use((req: Request, res: Response, next: NextFunction) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
