@@ -33,11 +33,25 @@
     "@types/morgan": "^1.7.37",
     "@types/node": "^12.7.12",
     "@types/passport": "^1.0.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^10.0.0-0",
     "prettier": "1.18.2",
     "tslint": "^5.20.0",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.6.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npx tsc --noEmit --esModuleInterop",
+      "tslint -p tsconfig.json -c tslint.json --fix",
+      "git add"
+    ]
   }
 }
