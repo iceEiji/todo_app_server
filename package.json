@@ -49,8 +49,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-        "tslint -p tsconfig.json -c tslint.json --fix",
-        "git add"
-      ]
+      "npx tsc --noEmit --esModuleInterop",
+      "tslint -p tsconfig.json -c tslint.json --fix",
+      "git add"
+    ]
   }
 }
