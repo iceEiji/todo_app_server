@@ -1,18 +1,42 @@
 # todo_app_server
 
-1. nodejsとnpmのバージョンをpackage.jsonのものに合わせてください。
+## Required
 
-2. run install module
-```
-npm install
-```
+* nodejs
+* See package.json for the version.
 
-3. run build
-```
-npx tsc
-```
+## Getting Started
 
-4. run server
+1. Please git clone this repository.
+2. Run install module.
+  ```
+  npm install
+  ```
+3. Run build.
+  ```
+  npx tsc
+  ```
+4. Start app server.
+  ```
+  npm run start
+  ```
+5. Stop app server.
+  * Ctrl+C
+
+### If use docker
+
+1. Start app server in Docker container.
+  ```
+  make start-docker-stack
+  ```
+2. Stop Docker container and app server.
+  ```
+  make stop-docker-stack
+  ```
+
+#### Q&A
+
+* If you get an error below, run "docker swarm init".
 ```
-npm run start
+this node is not a swarm manager. Use "docker swarm init" or "docker swarm join" to connect this node to swarm and try again
 ```
