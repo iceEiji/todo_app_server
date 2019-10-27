@@ -21,6 +21,7 @@
   npm run start
   ```
 5. Stop app server.
+  * Ctrl+C
 
 ### If use docker
 
@@ -32,3 +33,10 @@
   ```
   make stop-docker-stack
   ```
+
+#### Q&A
+
+* If you get an error below, run "docker swarm init".
+```
+this node is not a swarm manager. Use "docker swarm init" or "docker swarm join" to connect this node to swarm and try again
+```
