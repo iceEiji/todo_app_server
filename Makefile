@@ -3,7 +3,7 @@ DOCKER := docker
 DOCKER_STACK_NAME := todo_app_server
 DOCKER_COMPOSE_FILE := docker-compose.yml
 
-.PHONY: help start-docker-stack stop-docker-stack
+.PHONY: help start-docker-stack stop-docker-stack docker-build
 .DEFAULT_GOAL := help
 
 help:
@@ -14,3 +14,14 @@ start-docker-stack: ## Start Docker container.
 
 stop-docker-stack: ## Stop Docker container.
 	$(DOCKER) stack rm $(DOCKER_STACK_NAME)
+
+docker-build:
+	docker build --no-cache -t todo-app-server .
+
+k8s-deploy:
+	kubectl apply -f k8s/deployment.yml
+	kubectl apply -f k8s/service.yml
+
+k8s-clean:
+	kubectl delete -f k8s/deployment.yml
+	kubectl delete -f k8s/service.yml
