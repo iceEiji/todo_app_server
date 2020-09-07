@@ -33,7 +33,7 @@
     "@types/express-session": "^1.15.15",
     "@types/http-errors": "^1.6.3",
     "@types/i18n": "^0.8.6",
-    "@types/jest": "^24.0.23",
+    "@types/jest": "^26.0.13",
     "@types/morgan": "^1.7.37",
     "@types/node": "^13.1.2",
     "@types/passport": "^1.0.1",
