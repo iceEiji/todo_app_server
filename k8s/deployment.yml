@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: todo-app-server-k8s-deployment
+  labels:
+    app: todo-app-server
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: todo-app-server
+    spec:
+      containers:
+        - name: todo-app-server
+          image: todo-app-server
+          command:
+          ports:
+            - containerPort: 3000
