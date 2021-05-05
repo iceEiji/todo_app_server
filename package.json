@@ -34,7 +34,7 @@
     "@types/http-errors": "^1.6.3",
     "@types/i18n": "^0.8.6",
     "@types/jest": "^24.0.23",
-    "@types/morgan": "^1.7.37",
+    "@types/morgan": "^1.9.2",
     "@types/node": "^15.0.1",
     "@types/passport": "^1.0.1",
     "husky": "^6.0.0",
