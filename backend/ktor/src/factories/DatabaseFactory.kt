@@ -1,11 +1,11 @@
-package com.todo.example.factory
+package com.todo.example.factories
 
-import org.jetbrains.exposed.sql.Database
-import com.zaxxer.hikari.HikariDataSource
-import com.zaxxer.hikari.HikariConfig
 import com.typesafe.config.ConfigFactory
+import com.zaxxer.hikari.HikariConfig
+import com.zaxxer.hikari.HikariDataSource
 import io.ktor.config.*
 import org.flywaydb.core.Flyway
+import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 object DatabaseFactory {

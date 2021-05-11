@@ -1,9 +1,8 @@
 package com.todo.example
 
-import com.todo.example.factory.DatabaseFactory
+import com.todo.example.factories.DatabaseFactory
 import io.ktor.application.*
 import io.ktor.response.*
-import io.ktor.request.*
 import io.ktor.routing.*
 import io.ktor.http.*
 
