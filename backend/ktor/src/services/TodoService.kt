@@ -45,5 +45,12 @@ class TodoService {
         }
     }
 
+    suspend fun delete(id: Int): Boolean {
+        val removedCount = dbQuery {
+            TodosTable.deleteWhere { TodosTable.id eq id }
+        }
+        return removedCount > 0
+    }
+
     private fun ResultRow.toTodo() = Todo(id = get(TodosTable.id).value, task = get(TodosTable.task))
 }
