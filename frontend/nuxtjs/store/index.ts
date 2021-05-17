@@ -23,14 +23,14 @@ export const state = {
       task: 'task5'
     },
     {
-      id: 5,
-      task: 'task5'
+      id: 6,
+      task: 'task6'
     },
   ]
 };
 
 export const getters = {
-  getTodo() {
+  getTodos() {
     return state.todos;
   }
 };
