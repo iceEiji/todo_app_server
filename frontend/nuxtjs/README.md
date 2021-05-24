@@ -18,3 +18,11 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## TODOs
+
+* 全体的に型定義とかちゃんとしてtsっぽい書き方に修正。
+
+## 参考
+
+KtorとNuxt.jsで作るWebアプリケーション入門: https://booth.pm/ja/items/2392398

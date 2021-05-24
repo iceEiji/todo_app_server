@@ -1,6 +1,4 @@
-// TODO: jsのサンプルを元に学習中なので、tsっぽい書き方は後回し。
-
-export const state = {
+export const state =  () => ({
   todos: [
     {
       id: 1,
@@ -27,10 +25,10 @@ export const state = {
       task: 'task6'
     },
   ]
-};
+});
 
 export const getters = {
-  getTodos() {
+  getTodos(state: any) {
     return state.todos;
   }
 };
