@@ -1,6 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  /*
+  ** Nuxt rendering mode
+  ** See https://nuxtjs.org/api/configuration-mode
+  */
+  ssr: false,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - nuxtjs',
@@ -39,7 +45,24 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
+  axios: {
+  },
+  proxy: {
+    // "/api"へのアクセスをAPIサーバーへ接続させる。
+    '/api': {
+      target: 'http://localhost:8080',
+      pathRewrite: {
+        // "/api"は、今回エンドポイントに含まないので削除する.
+        '^/api': '',
+      },
+      headers: {
+        Connection: 'keep-alive'
+      }
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

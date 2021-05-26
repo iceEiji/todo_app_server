@@ -71,7 +71,13 @@
 
 <script lang="ts">
 import Vue from "vue";
+import axios from "axios";
+
 export default Vue.extend({
+  async asyncData({app}) {
+    const response = await axios.get('/api/todos/');
+    return { todos: response.data }
+  },
   data() {
     return {
       search: '',
@@ -88,9 +94,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    todos() {
-      return this.$store.getters.getTodos
-    },
     isPersistedTodo(): boolean {
       return !!this.todo.id;
     },
@@ -113,19 +116,26 @@ export default Vue.extend({
       this.dialog = false;
     },
     // 以下、データ操作関連
-    create() {
-      const payload = { todo: this.todo };
-      this.$store.commit('addTodo', payload);
+    async create() {
+      await axios.post('/api/todos/', this.todo).then(() => {
+        console.info(this.$router.app);
+        // @ts-ignore
+        this.$router.app.refresh();
+      });
       this.close();
     },
-    update() {
-      const payload = {todo: this.todo};
-      this.$store.commit('updateTodo', payload);
+    async update() {
+      await axios.put('/api/todos/' + this.todo.id, this.todo).then(() => {
+        // @ts-ignore
+        this.$router.app.refresh();
+      });
       this.close();
     },
-    remove(todo: any) {
-      const payload = {todo};
-      this.$store.commit('removeTodo', payload);
+    async remove(todo: any) {
+      await axios.delete('/api/todos/' + todo.id, todo).then(() => {
+        // @ts-ignore
+        this.$router.app.refresh();
+      });
     },
   }
 });
