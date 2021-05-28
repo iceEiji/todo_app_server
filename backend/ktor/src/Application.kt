@@ -15,6 +15,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.tomcat.EngineMain.main(args
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
 
+    install(CallLogging)
     install(ContentNegotiation) {
         jackson {
             configure(SerializationFeature.INDENT_OUTPUT, true)

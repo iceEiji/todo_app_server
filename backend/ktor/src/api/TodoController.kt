@@ -10,7 +10,7 @@ import io.ktor.routing.*
 
 fun Route.todos(todoService: TodoService) {
     route("todos") {
-        get("/") {
+        get() {
             call.respond(todoService.getAll())
         }
 
@@ -21,7 +21,7 @@ fun Route.todos(todoService: TodoService) {
             else call.respond(todo)
         }
 
-        post("/") {
+        post() {
             val newTodo = call.receive<NewTodo>()
             call.respond(HttpStatusCode.Created, todoService.add(newTodo))
         }

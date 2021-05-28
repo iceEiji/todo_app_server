@@ -30,7 +30,7 @@
       >
         <!-- モーダル -->
         <template v-slot:top>
-          <v-dialog v-model="dialog" max-width="500px">
+          <v-dialog v-model="isShowingDialog" max-width="500px">
             <v-card>
               <v-card-title>
                 <span class="headline">{{ formTitle }}</span>
@@ -75,7 +75,7 @@ import axios from "axios";
 
 export default Vue.extend({
   async asyncData({app}) {
-    const response = await axios.get('/api/todos/');
+    const response = await axios.get('/api/todos');
     return { todos: response.data }
   },
   data() {
@@ -90,7 +90,7 @@ export default Vue.extend({
         id: undefined as unknown | number,
         task: undefined as unknown | string
       },
-      dialog: false
+      isShowingDialog: false
     }
   },
   computed: {
@@ -105,20 +105,19 @@ export default Vue.extend({
     // 以下、UI操作関連
     add(todo: any) {
       this.todo = todo;
-      this.dialog = true;
+      this.isShowingDialog = true;
     },
     edit(todo: any) {
       this.todo = Object.assign({}, todo);
-      this.dialog = true;
+      this.isShowingDialog = true;
     },
     close() {
       this.todo = { id: undefined, task: undefined };
-      this.dialog = false;
+      this.isShowingDialog = false;
     },
     // 以下、データ操作関連
     async create() {
-      await axios.post('/api/todos/', this.todo).then(() => {
-        console.info(this.$router.app);
+      await axios.post('/api/todos', this.todo).then(() => {
         // @ts-ignore
         this.$router.app.refresh();
       });
