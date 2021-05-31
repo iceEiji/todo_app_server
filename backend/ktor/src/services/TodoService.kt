@@ -7,6 +7,7 @@ import com.todo.example.models.Todo
 import org.jetbrains.exposed.sql.*
 
 class TodoService {
+    // TODO: 冗長になるかもしれないが、本クラス→model.Todo→dao.TodosTableというアクセスにしたほうがきれいかも
     suspend fun getAll(): List<Todo> = dbQuery {
         TodosTable.selectAll().map {
             it.toTodo()
@@ -52,5 +53,8 @@ class TodoService {
         return removedCount > 0
     }
 
-    private fun ResultRow.toTodo() = Todo(id = get(TodosTable.id).value, task = get(TodosTable.task))
+    private fun ResultRow.toTodo() = Todo(
+        id = get(TodosTable.id).value,
+        task = get(TodosTable.task)
+    )
 }

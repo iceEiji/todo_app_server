@@ -36,5 +36,6 @@ dependencies {
     implementation "org.postgresql:postgresql:42.2.20"
     implementation 'org.flywaydb:flyway-core:7.8.2'
     implementation "io.ktor:ktor-jackson:$ktor_version"
+    implementation "io.ktor:ktor-auth-jwt:$ktor_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
 }

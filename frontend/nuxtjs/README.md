@@ -25,4 +25,6 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## 参考
 
-KtorとNuxt.jsで作るWebアプリケーション入門: https://booth.pm/ja/items/2392398
+* KtorとNuxt.jsで作るWebアプリケーション入門: https://booth.pm/ja/items/2392398
+  * https://github.com/chichi1091/nuxt-todo-example
+  * https://github.com/chichi1091/nuxt-todo-example-2
